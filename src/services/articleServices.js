@@ -7,7 +7,7 @@ const articleService = (stateSetter) => {
       return stateSetter(response.data);
     })
     .catch((error) => {
-      console.error("COULD NOT FETCH ARTICLES!", error);
+      console.error("ERROR: CANNOT RETRIEVE ARTICLES", error);
     });
 };
 

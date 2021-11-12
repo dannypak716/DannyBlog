@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 const Article = (props)=> {
-    const {article, handleDelete, handleEditSelect} = props;
+    const {article, handleDelete, handleEditConfirm} = props;
 
     return(<div data-testid="article">
         <ArticleStyle>
@@ -21,7 +21,7 @@ const Article = (props)=> {
         
         <ButtonContainer>
             <button data-testid="deleteButton" onClick={()=> {handleDelete(article.id)}}>Delete</button>                
-            <button data-testid="editButton" onClick={()=> {handleEditSelect(article.id)}}>Edit</button>
+            <button data-testid="editButton" onClick={()=> {handleEditConfirm(article.id)}}>Edit</button>
         </ButtonContainer>
     </div>);
 }

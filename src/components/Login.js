@@ -13,7 +13,6 @@ const initialErrors = {
 
 const Login = () => {
   const { push } = useHistory();
-
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
 
@@ -26,8 +25,8 @@ const Login = () => {
         push("/view");
       })
       .catch((error) => {
-        console.error("FAILED TO LOG IN!", error);
-        setErrors({ ...errors, submit: "Incorrect Login/Password" });
+        console.error("ERROR: COULD NOT LOG IN!", error);
+        setErrors({ ...errors, submit: "INVALID CREDENTIALS!" });
       });
   };
 

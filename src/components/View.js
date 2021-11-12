@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
 import Article from "./Article";
 import EditForm from "./EditForm";
 import articleService from "../services/articleServices";
@@ -22,7 +21,7 @@ const View = (props) => {
         setArticles(response.data);
       })
       .catch((error) => {
-        console.error("FAILED TO DELETE ARTICLE!", error);
+        console.error("ERROR: COULD NOT DELETE ARTICLE!", error);
       });
   };
 
@@ -34,11 +33,11 @@ const View = (props) => {
         setArticles(response.data);
       })
       .catch((error) => {
-        console.error("FAILED TO EDIT ARTICLE!", error);
+        console.error("ERROR: COULD NOT EDIT ARTICLE!", error);
       });
   };
 
-  const handleEditSelect = (id) => {
+  const handleEditConfirm = (id) => {
     setEditing(true);
     setEditId(id);
   };
@@ -59,7 +58,7 @@ const View = (props) => {
                   key={article.id}
                   article={article}
                   handleDelete={handleDelete}
-                  handleEditSelect={handleEditSelect}
+                  handleEditConfirm={handleEditConfirm}
                 />
               </ArticleDivider>
             );
