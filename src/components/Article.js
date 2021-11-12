@@ -44,7 +44,6 @@ const ButtonContainer = styled.div`
     padding: 1em;
     text-transform: uppercase;
     text-align:right;
-
     button {
         width: 100px;
         padding:0.5em;
