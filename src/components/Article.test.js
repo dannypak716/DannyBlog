@@ -1,22 +1,47 @@
-import React from 'react';
-import '@testing-library/jest-dom';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import moment from "moment";
+import "@testing-library/jest-dom";
 
-import userEvent from '@testing-library/user-event';
-import MutationObserver from 'mutationobserver-shim';
+import Article from "./Article";
 
-import Article from './Article';
+const testArticle = {
+  id: 7,
+  headline: "Test Article",
+  createdOn: Date.now(),
+  author: "Author",
+  image: 134,
+  summary: "Summary of Test Article",
+  body: "Informative sentences about the test article.",
+};
 
-test('renders component without errors', ()=> {
+test("renders component", () => {
+  render(<Article article={testArticle} />);
 });
 
-// test('renders headline, author from the article when passed in through props', ()=> {
-// });
+test("renders headline and author", () => {
+  render(<Article article={testArticle} />);
+  screen.getByText("Test Article");
+  screen.getByText("By Author");
+  screen.getByText("Summary of Test Article");
+  screen.getByText("Informative sentences about the test article.");
+});
 
-// test('renders "Associated Press" when no author is given', ()=> {
-// });
+test('renders "Associated Press" if no author', () => {
+  const noAuthor = {
+    ...testArticle,
+    author: "",
+  };
 
-// test('executes handleDelete when the delete button is pressed', ()=> {
-// });
+  render(<Article article={noAuthor} />);
+  screen.getByText("By Associated Press");
+});
 
-//Task List:
-//1. Complete all above tests. Create test article data when needed.
+test("delete button deletes article", () => {
+  const handleDeleteTest = jest.fn();
+  render(<Article article={testArticle} handleDelete={handleDeleteTest} />);
+  const deleteButton = screen.getByTestId("deleteButton");
+  userEvent.click(deleteButton);
+  expect(handleDeleteTest).toBeCalled();
+});

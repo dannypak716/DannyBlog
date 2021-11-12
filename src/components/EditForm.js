@@ -81,7 +81,7 @@ const EditForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <Button id="editButton">Edit Article</Button>
+      <Button id="editButton">Confirm</Button>
       <Button onClick={handleCancel}>Cancel</Button>
     </FormContainer>
   );
