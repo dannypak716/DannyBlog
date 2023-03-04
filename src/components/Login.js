@@ -88,7 +88,7 @@ export default Login;
 //6. MAKE SURE TO ADD id="username", id="password", id="error" AND id="submit" TO THE APPROPRIATE DOM ELEMENTS. YOUR AUTOTESTS WILL FAIL WITHOUT THEM.
 
 const ComponentContainer = styled.div`
-  height: 70%;
+  height: 80%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -118,6 +118,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+  margin-top: 1rem;
   padding: 1rem;
   width: 100%;
 `;

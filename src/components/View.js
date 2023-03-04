@@ -4,6 +4,7 @@ import Article from "./Article";
 import EditForm from "./EditForm";
 import articleService from "../services/articleServices";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { Link } from 'react-router-dom';
 
 const View = (props) => {
   const [articles, setArticles] = useState([]);
@@ -48,7 +49,12 @@ const View = (props) => {
 
   return (
     <ComponentContainer>
-      <HeaderContainer>View Articles</HeaderContainer>
+      <HeaderContainer>
+        <HeaderContainerDiv className="headerContainerDiv">
+          <div>View Articles</div>
+          <button><a href="">Create New Article</a></button>
+        </HeaderContainerDiv>
+      </HeaderContainer>
       <ContentContainer flexDirection="row">
         <ArticleContainer>
           {articles.map((article) => {
@@ -88,6 +94,13 @@ export default View;
 const Container = styled.div`
   padding: 0.5em;
 `;
+
+const HeaderContainerDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const HeaderContainer = styled.h1`
   border-bottom: solid black 2px;
   padding: 1em;
