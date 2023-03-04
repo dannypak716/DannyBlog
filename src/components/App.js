@@ -13,7 +13,6 @@ import Create from "./Create";
 const App = () => {
   return (
     <AppContainer>
-      <LambdaHeader />
       <Header />
       <RouteContainer>
         <Switch>
@@ -24,6 +23,7 @@ const App = () => {
           <Route exact path="/" component={Login} />
         </Switch>
       </RouteContainer>
+      {/* <LambdaHeader /> */}
     </AppContainer>
   );
 };

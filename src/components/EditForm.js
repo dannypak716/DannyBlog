@@ -65,7 +65,9 @@ const EditForm = (props) => {
       </div>
       <div>
         <label>Summary</label>
-        <input
+        <textarea
+          rows="7" 
+          cols="30"
           value={article.summary}
           id="summary"
           name="summary"
@@ -74,7 +76,9 @@ const EditForm = (props) => {
       </div>
       <div>
         <label>Body</label>
-        <input
+        <textarea
+          rows="7" 
+          cols="30"
           value={article.body}
           id="body"
           name="body"
@@ -107,6 +111,8 @@ const FormContainer = styled.form`
     margin: 0.5em 0;
   }
 `;
+
+
 
 const Button = styled.button`
   width: 100%;

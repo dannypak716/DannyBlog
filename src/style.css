@@ -10,3 +10,8 @@ html, body, #root {
 label {
     display:block;
 }
+
+#body, #summary {
+    font-family: "Lato";
+    padding: 5px;
+}

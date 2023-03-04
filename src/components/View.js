@@ -52,7 +52,9 @@ const View = (props) => {
       <HeaderContainer>
         <HeaderContainerDiv className="headerContainerDiv">
           <div>View Articles</div>
-          <button><a href="">Create New Article</a></button>
+          <Button>
+            <Link to="/create">Create New Article</Link>
+          </Button>
         </HeaderContainerDiv>
       </HeaderContainer>
       <ContentContainer flexDirection="row">
@@ -129,4 +131,18 @@ const ContentContainer = styled.div`
 
 const ArticleContainer = styled.div`
   background: grey;
+`;
+
+const Button = styled.button`
+  width: 200px;
+  padding: .5em;
+  margin-top: 1em;
+  margin-right: 1%;
+  text-transform: capitalize;
+  text-align: center;
+  a {
+            text-decoration: none;
+            color: black;
+            font-size: 1em;
+        }
 `;
