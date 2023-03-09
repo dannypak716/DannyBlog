@@ -33,7 +33,6 @@ api.post('/api/login', (req, res) => {
   } else {
     res.status(403).json({ error: 'Incorrect username / password combination.' });
   }
-  
 })
 
 api.post('/api/logout', authenticator, (req, res) => {

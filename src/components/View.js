@@ -11,10 +11,12 @@ const View = (props) => {
   const [editing, setEditing] = useState(false);
   const [editId, setEditId] = useState();
 
+  // when component mounts or whenever articles changes, run articleService() by passing articles state setter as an argument
   useEffect(() => {
     articleService(setArticles);
   }, []);
 
+  // delete articles by ID and then setArticles with new list of articles.  should return all articles except deleted one.
   const handleDelete = (id) => {
     axiosWithAuth()
       .delete(`http://localhost:5000/api/articles/${id}`)
@@ -26,6 +28,7 @@ const View = (props) => {
       });
   };
 
+  // 
   const handleEdit = (article) => {
     axiosWithAuth()
       .put(`http://localhost:5000/api/articles/${editId}`, article)

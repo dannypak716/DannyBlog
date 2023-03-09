@@ -20,7 +20,7 @@ const Create = () => {
         image: Math.floor(Math.random()*1000),
       };
 
-    const history = useHistory();
+    const {push} = useHistory();
 
     const [article, setArticle] = useState(initialArticle);
     const [articles, setArticles] = useState([]);
@@ -52,7 +52,7 @@ const Create = () => {
         handleEdit(article);
         console.log(nanoid(5));
         console.log(article.image);
-        history.push("/view");
+        push("/view");
     };
 
     const handleCancel = (e) => {
@@ -83,7 +83,9 @@ const Create = () => {
       </div>
       <div>
         <label>Summary</label>
-        <input
+        <textarea
+          rows="7" 
+          cols="30"
           value={article.summary}
           id="summary"
           name="summary"
@@ -92,7 +94,9 @@ const Create = () => {
       </div>
       <div>
         <label>Body</label>
-        <input
+        <textarea
+          rows="7" 
+          cols="30"
           value={article.body}
           id="body"
           name="body"
