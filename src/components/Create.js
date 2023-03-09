@@ -17,7 +17,7 @@ const Create = () => {
         author: "",
         summary: "",
         body: "",
-        image: Math.floor(Math.random()*1000),
+        image: Math.ceil(Math.random()*100),
       };
 
     const {push} = useHistory();
@@ -50,8 +50,6 @@ const Create = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleEdit(article);
-        console.log(nanoid(5));
-        console.log(article.image);
         push("/view");
     };
 

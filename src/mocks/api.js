@@ -3,11 +3,11 @@ const Articles = require('./data')
 const cors = require('cors')
 const credentials = require('./credentials');
 
-const api = express()
+const api = express();
 
-api.use(express.json())
+api.use(express.json());
 
-api.use(cors())
+api.use(cors());
 
 const authenticator = (req, res, next) => {
   const { authorization } = req.headers;
@@ -41,7 +41,7 @@ api.post('/api/logout', authenticator, (req, res) => {
     username,
     role,
     token
-  })
+  });
 })
 
 api.get('/api/articles', authenticator, (req, res) => {
